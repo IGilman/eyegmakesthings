@@ -5,22 +5,22 @@
 // ── Custom Material Theme ────────────────────────────────────────────────────
 
 $primary-palette: mat.m2-define-palette((
-  50: #fdf0e8,
-  100: #f9d9c4,
-  200: #f4c09d,
-  300: #eea776,
-  400: #eb9458,
-  500: #c8622a,
-  600: #b85825,
-  700: #a34d1f,
-  800: #8e4319,
-  900: #6e3110,
+  50: #e0f0ee,
+  100: #b3d9d5,
+  200: #80c0ba,
+  300: #4da79f,
+  400: #269489,
+  500: #2e7d72,
+  600: #277068,
+  700: #1f605a,
+  800: #17514c,
+  900: #0a3835,
   contrast: (
     50: rgba(0,0,0,.87),
     100: rgba(0,0,0,.87),
     200: rgba(0,0,0,.87),
     300: rgba(0,0,0,.87),
-    400: rgba(0,0,0,.87),
+    400: white,
     500: white,
     600: white,
     700: white,
@@ -55,15 +55,15 @@ $portfolio-theme: mat.m2-define-light-theme((
 // ── CSS Variables ────────────────────────────────────────────────────────────
 
 :root {
-  --color-bg: #f7f5f0;
+  --color-bg: #f2f6f5;
   --color-surface: #ffffff;
-  --color-surface-alt: #f0ede6;
-  --color-ink: #1a1814;
-  --color-ink-muted: #6b6660;
-  --color-ink-faint: #b0aca6;
-  --color-accent: #c8622a;
-  --color-accent-light: #fdf0e8;
-  --color-border: #e2ddd6;
+  --color-surface-alt: #e8f0ee;
+  --color-ink: #1a2422;
+  --color-ink-muted: #4a6260;
+  --color-ink-faint: #9ab4b0;
+  --color-accent: #2e7d72;
+  --color-accent-light: #e0f0ee;
+  --color-border: #d4e4e1;
   --font-display: 'DM Serif Display', Georgia, serif;
   --font-body: 'DM Sans', system-ui, sans-serif;
   --radius-sm: 4px;
