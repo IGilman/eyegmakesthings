@@ -187,14 +187,14 @@ export class PortfolioService {
       logoDark: false,
       featured: true,
     },
-    {
-      name: 'Mailbox — Coming Soon',
-      description:
-        'A new personal project currently in development. Stay tuned for updates — details and a live link will be added here soon.',
-      tags: ['TBD'],
-      logoInitials: 'MB',
-      featured: true,
-    },
+    // {
+    //   name: 'Mailbox — Coming Soon',
+    //   description:
+    //     'A new personal project currently in development. Stay tuned for updates — details and a live link will be added here soon.',
+    //   tags: ['TBD'],
+    //   logoInitials: 'MB',
+    //   featured: true,
+    // },
   ];
 
 
@@ -209,7 +209,7 @@ export class PortfolioService {
     },
     {
       category: 'Cloud & Tools',
-      skills: ['AWS', 'Azure', 'Git', 'Docker', 'Kubernetes', 'AzureDevops'],
+      skills: ['AWS', 'Azure', 'Claude Code', 'Docker', 'Kubernetes', 'AzureDevops'],
     },
     {
       category: 'Leadership & Practices',

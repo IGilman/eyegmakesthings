@@ -9,49 +9,35 @@ import { PortfolioService } from '../portfolio.service';
   template: `
     <section id="hero" aria-labelledby="hero-heading" class="hero-section">
       <div class="hero-bg-shape" aria-hidden="true"></div>
-
       <div class="container hero-inner">
 
-        <!-- Left: identity + bio + contact -->
+        <!-- Left column -->
         <div class="hero-content">
           <p class="hero-eyebrow fade-up delay-1">
             <span aria-hidden="true">👋</span> Hello, I'm
           </p>
-          <h1 id="hero-heading" class="hero-name fade-up delay-2">
-            {{ portfolio.name }}
-          </h1>
+          <h1 id="hero-heading" class="hero-name fade-up delay-2">{{ portfolio.name }}</h1>
           <p class="hero-title fade-up delay-3">{{ portfolio.title }}</p>
           <p class="hero-bio fade-up delay-4">{{ portfolio.bio }}</p>
 
-          <div class="hero-details fade-up delay-4" aria-label="Personal details">
-            <span class="detail-item">
-              <mat-icon aria-hidden="true">location_on</mat-icon>
-              {{ portfolio.location }}
-            </span>
-            <span class="detail-item">
-              <mat-icon aria-hidden="true">work</mat-icon>
-              {{ portfolio.title }}
-            </span>
-          </div>
-
-          <div class="contact-links fade-up delay-5" aria-label="Contact and social links">
-            <a [href]="'mailto:' + portfolio.email" class="contact-link" aria-label="Send email to Isaac">
-              <span class="contact-link-icon" aria-hidden="true"><mat-icon>mail</mat-icon></span>
-              <span class="contact-link-text">{{ portfolio.email }}</span>
+          <div class="contact-links fade-up delay-5">
+            <a [href]="'mailto:' + portfolio.email" class="contact-link">
+              <span class="contact-link-icon"><mat-icon>mail</mat-icon></span>
+              <span>{{ portfolio.email }}</span>
             </a>
-            <a [href]="'tel:' + portfolio.phone" class="contact-link" aria-label="Call Isaac">
-              <span class="contact-link-icon" aria-hidden="true"><mat-icon>phone</mat-icon></span>
-              <span class="contact-link-text">{{ portfolio.phone }}</span>
+            <a [href]="'tel:' + portfolio.phone" class="contact-link">
+              <span class="contact-link-icon"><mat-icon>phone</mat-icon></span>
+              <span>{{ portfolio.phone }}</span>
             </a>
-            <a href="https://www.linkedin.com/in/isaacgilman/" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="LinkedIn (opens in new tab)">
-              <span class="contact-link-icon" aria-hidden="true"><mat-icon>link</mat-icon></span>
-              <span class="contact-link-text">LinkedIn</span>
-              <mat-icon class="contact-link-arrow" aria-hidden="true">open_in_new</mat-icon>
+            <a href="https://www.linkedin.com/in/isaacgilman/" target="_blank" rel="noopener noreferrer" class="contact-link">
+              <span class="contact-link-icon"><mat-icon>link</mat-icon></span>
+              <span>LinkedIn</span>
+              <mat-icon class="ext-icon">open_in_new</mat-icon>
             </a>
-            <a href="https://github.com/isaacgilman" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="GitHub (opens in new tab)">
-              <span class="contact-link-icon" aria-hidden="true"><mat-icon>code</mat-icon></span>
-              <span class="contact-link-text">GitHub</span>
-              <mat-icon class="contact-link-arrow" aria-hidden="true">open_in_new</mat-icon>
+            <a href="https://github.com/isaacgilman" target="_blank" rel="noopener noreferrer" class="contact-link">
+              <span class="contact-link-icon"><mat-icon>code</mat-icon></span>
+              <span>GitHub</span>
+              <mat-icon class="ext-icon">open_in_new</mat-icon>
             </a>
           </div>
 
@@ -64,35 +50,32 @@ import { PortfolioService } from '../portfolio.service';
           </div>
         </div>
 
-        <!-- Right: avatar + stats stacked -->
+        <!-- Right column -->
         <div class="hero-right">
-          <div class="avatar-wrap fade-up delay-3" aria-hidden="true">
+
+          <!-- Avatar -->
+          <div class="avatar-wrap fade-up delay-2" aria-hidden="true">
             <div class="avatar-ring">
-              <div class="avatar-initials">{{ initials }}</div>
+              <img src="IsaacGilman-headshot.png" alt="Isaac Gilman" class="avatar-img" />
             </div>
-            <div class="floating-tag tag-1">
-              <mat-icon>code</mat-icon>
-              <span>Full Stack</span>
-            </div>
-            <div class="floating-tag tag-2">
-              <mat-icon>groups</mat-icon>
-              <span>125+ CoP Members</span>
-            </div>
+            <span class="floating-tag tag-1"><mat-icon>code</mat-icon> Full Stack</span>
+            <span class="floating-tag tag-2"><mat-icon>groups</mat-icon>Leader & Engineer</span>
           </div>
 
-          <div class="stats-grid fade-up delay-4" aria-label="Career highlights">
+          <!-- Stats -->
+          <div class="stats-grid fade-up delay-4">
             @for (stat of stats; track stat.label) {
-              <div class="stat-card" role="figure" [attr.aria-label]="stat.value + ' ' + stat.label">
+              <div class="stat-card">
                 <span class="stat-value">{{ stat.value }}</span>
                 <span class="stat-label">{{ stat.label }}</span>
               </div>
             }
           </div>
-        </div>
 
+        </div>
       </div>
 
-      <div class="scroll-hint fade-up delay-6" aria-hidden="true">
+      <div class="scroll-hint" aria-hidden="true">
         <span>Scroll to explore</span>
         <mat-icon>keyboard_arrow_down</mat-icon>
       </div>
@@ -106,7 +89,7 @@ import { PortfolioService } from '../portfolio.service';
       flex-direction: column;
       justify-content: center;
       overflow: hidden;
-      padding: 5rem 0 7rem;
+      padding: 6rem 0 8rem;
       background: var(--color-bg);
     }
 
@@ -123,79 +106,66 @@ import { PortfolioService } from '../portfolio.service';
       pointer-events: none;
     }
 
-    /* Two equal columns, both start at the top */
+    /* ── Main grid ── */
     .hero-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      align-items: start;
-      gap: 5rem;
+      gap: 6rem;
+      align-items: stretch;
     }
 
-    /* Left column */
+    /* ── Left column ── */
     .hero-content {
       display: flex;
       flex-direction: column;
+      gap: 0;
+    }
+
+    /* ── Right column ── */
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .hero-eyebrow {
-      font-size: 1rem;
-      font-weight: 400;
-      color: var(--color-ink-muted);
-      margin-bottom: 0.4rem;
       display: flex;
       align-items: center;
       gap: 0.4rem;
+      font-size: 0.95rem;
+      color: var(--color-ink-muted);
+      margin-bottom: 0.5rem;
     }
 
     .hero-name {
       font-family: var(--font-display);
-      font-size: clamp(2.75rem, 5vw, 4.5rem);
+      font-size: clamp(2.5rem, 4.5vw, 4rem);
       line-height: 1.05;
-      color: var(--color-ink);
-      margin-bottom: 0.3rem;
       letter-spacing: -0.02em;
+      color: var(--color-ink);
+      margin-bottom: 0.4rem;
     }
 
     .hero-title {
-      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-size: 1.1rem;
       font-weight: 400;
       color: var(--color-accent);
-      margin-bottom: 1.25rem;
-    }
-
-    .hero-bio {
-      font-size: 0.975rem;
-      font-weight: 300;
-      color: var(--color-ink-muted);
-      line-height: 1.75;
-      margin-bottom: 1.25rem;
-    }
-
-    .hero-details {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
       margin-bottom: 1.5rem;
     }
 
-    .detail-item {
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-size: 0.85rem;
+    .hero-bio {
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.8;
       color: var(--color-ink-muted);
-
-      mat-icon {
-        font-size: 1rem;
-        width: 1rem;
-        height: 1rem;
-        color: var(--color-accent);
-      }
+      margin-bottom: 1.75rem;
     }
 
+    /* Contact links */
     .contact-links {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 0.5rem;
       margin-bottom: 2rem;
     }
@@ -203,20 +173,20 @@ import { PortfolioService } from '../portfolio.service';
     .contact-link {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      padding: 0.65rem 0.9rem;
+      gap: 0.6rem;
+      padding: 0.6rem 0.85rem;
       border: 1px solid var(--color-border);
       border-radius: var(--radius-md);
       background: var(--color-surface);
       text-decoration: none;
       color: var(--color-ink);
-      font-size: 0.875rem;
-      transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+      font-size: 0.85rem;
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
 
       &:hover {
         border-color: var(--color-accent);
+        transform: translateY(-2px);
         box-shadow: var(--shadow-sm);
-        transform: translateX(4px);
 
         .contact-link-icon {
           background: var(--color-accent);
@@ -226,9 +196,9 @@ import { PortfolioService } from '../portfolio.service';
     }
 
     .contact-link-icon {
-      width: 30px;
-      height: 30px;
-      border-radius: var(--radius-sm);
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
       background: var(--color-accent-light);
       display: flex;
       align-items: center;
@@ -237,45 +207,36 @@ import { PortfolioService } from '../portfolio.service';
       transition: background var(--transition);
 
       mat-icon {
-        font-size: 0.95rem;
-        width: 0.95rem;
-        height: 0.95rem;
+        font-size: 0.9rem;
+        width: 0.9rem;
+        height: 0.9rem;
         color: var(--color-accent);
         transition: color var(--transition);
       }
     }
 
-    .contact-link-text { flex: 1; }
-
-    .contact-link-arrow {
-      font-size: 0.85rem;
-      width: 0.85rem;
-      height: 0.85rem;
+    .ext-icon {
+      font-size: 0.75rem;
+      width: 0.75rem;
+      height: 0.75rem;
       color: var(--color-ink-faint);
+      margin-left: auto;
     }
 
     .hero-actions {
       display: flex;
-      gap: 1rem;
+      gap: 0.75rem;
       flex-wrap: wrap;
     }
 
-    /* Right column — flex column, starts at top, no centering */
-    .hero-right {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-    }
-
+    /* Avatar */
     .avatar-wrap {
       position: relative;
-      width: 200px;
-      height: 200px;
+      width: 220px;
+      height: 220px;
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
     }
 
     .avatar-ring {
@@ -290,11 +251,17 @@ import { PortfolioService } from '../portfolio.service';
       justify-content: center;
     }
 
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
     .avatar-initials {
       font-family: var(--font-display);
-      font-size: 4rem;
+      font-size: 3.75rem;
       color: var(--color-accent);
-      line-height: 1;
       font-style: italic;
     }
 
@@ -302,34 +269,34 @@ import { PortfolioService } from '../portfolio.service';
       position: absolute;
       display: flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.3rem;
       background: var(--color-surface);
       border: 1px solid var(--color-border);
       border-radius: 999px;
-      padding: 0.35rem 0.85rem;
-      font-size: 0.75rem;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.73rem;
       font-weight: 500;
       color: var(--color-ink);
       box-shadow: var(--shadow-md);
       white-space: nowrap;
 
       mat-icon {
-        font-size: 0.95rem;
-        width: 0.95rem;
-        height: 0.95rem;
+        font-size: 0.9rem;
+        width: 0.9rem;
+        height: 0.9rem;
         color: var(--color-accent);
       }
     }
 
     .tag-1 {
-      top: -12px;
-      right: -32px;
+      top: 0;
+      right: -24px;
       animation: float1 4s ease-in-out infinite;
     }
 
     .tag-2 {
-      bottom: -12px;
-      left: -32px;
+      bottom: 0;
+      left: -24px;
       animation: float2 5s ease-in-out infinite;
     }
 
@@ -347,7 +314,7 @@ import { PortfolioService } from '../portfolio.service';
     .stats-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+      gap: 0.85rem;
       width: 100%;
     }
 
@@ -355,10 +322,10 @@ import { PortfolioService } from '../portfolio.service';
       background: var(--color-surface);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
-      padding: 1.5rem 1.25rem;
+      padding: 1.25rem 1.25rem;
       display: flex;
       flex-direction: column;
-      gap: 0.3rem;
+      gap: 0.25rem;
       transition: box-shadow var(--transition), transform var(--transition);
 
       &:hover {
@@ -369,34 +336,34 @@ import { PortfolioService } from '../portfolio.service';
 
     .stat-value {
       font-family: var(--font-display);
-      font-size: 2.25rem;
+      font-size: 2rem;
       color: var(--color-accent);
       line-height: 1;
     }
 
     .stat-label {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--color-ink-muted);
       line-height: 1.4;
     }
 
     /* Scroll hint */
     .scroll-hint {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.25rem;
       position: absolute;
       bottom: 2rem;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--color-ink-faint);
       animation: bounce 2.5s ease-in-out infinite;
 
-      mat-icon { font-size: 1.1rem; width: 1.1rem; height: 1.1rem; }
+      mat-icon { font-size: 1rem; width: 1rem; height: 1rem; }
     }
 
     @keyframes bounce {
@@ -404,6 +371,7 @@ import { PortfolioService } from '../portfolio.service';
       50% { transform: translateX(-50%) translateY(6px); }
     }
 
+    /* Responsive */
     @media (max-width: 960px) {
       .hero-inner {
         grid-template-columns: 1fr;
@@ -412,13 +380,14 @@ import { PortfolioService } from '../portfolio.service';
         text-align: center;
       }
 
-      .hero-content { max-width: 100%; }
-      .hero-details, .hero-actions { justify-content: center; }
-      .contact-links { max-width: 420px; margin-left: auto; margin-right: auto; }
+      .hero-content { max-width: 560px; }
+      .hero-actions { justify-content: center; }
+      .contact-links { max-width: 460px; margin: 0 auto 2rem; }
       .hero-right { width: 100%; max-width: 420px; }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 560px) {
+      .contact-links { grid-template-columns: 1fr; }
       .avatar-wrap { display: none; }
     }
   `],
@@ -428,16 +397,13 @@ export class AboutComponent {
   readonly portfolio = inject(PortfolioService);
 
   readonly stats = [
-    { value: '10+', label: 'Years of Experience' },
-    { value: '25%', label: 'Borrower Data Reduction' },
-    { value: '125+', label: 'Angular CoP Members' },
-    { value: '20+', label: 'Tech Presentations Given' },
+    { value: '5', label: 'Teams Lead' },
+    { value: '12', label: 'Years of Experience' },
+    { value: '20', label: 'Applications Deployed' },
+    { value: '35', label: 'Tech Presentations Given' },
   ];
 
   get initials(): string {
-    return this.portfolio.name
-      .split(' ')
-      .map(n => n[0])
-      .join('');
+    return this.portfolio.name.split(' ').map(n => n[0]).join('');
   }
 }
