@@ -34,7 +34,7 @@ import { PortfolioService } from '../portfolio.service';
               <span>LinkedIn</span>
               <mat-icon class="ext-icon">open_in_new</mat-icon>
             </a>
-            <a href="https://github.com/isaacgilman" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <a href="https://github.com/igilman" target="_blank" rel="noopener noreferrer" class="contact-link">
               <span class="contact-link-icon"><mat-icon>code</mat-icon></span>
               <span>GitHub</span>
               <mat-icon class="ext-icon">open_in_new</mat-icon>
