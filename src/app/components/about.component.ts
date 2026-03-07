@@ -397,7 +397,7 @@ export class AboutComponent {
   readonly portfolio = inject(PortfolioService);
 
   readonly stats = [
-    { value: '5', label: 'Teams Lead' },
+    { value: '5', label: 'Teams Led' },
     { value: '12', label: 'Years of Experience' },
     { value: '20', label: 'Applications Deployed' },
     { value: '35', label: 'Tech Presentations Given' },
